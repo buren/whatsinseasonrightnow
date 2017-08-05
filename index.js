@@ -76,5 +76,6 @@ app.get('/*', function(request, response){
   response.render('index', page.viewData);
 });
 
-console.log('Listening on http://localhost:3000/');
-app.listen(3000);
+var port = process.env.PORT || 3000;
+console.log('Listening on http://localhost:'+ port + '/');
+app.listen(port);
