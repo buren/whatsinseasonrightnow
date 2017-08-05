@@ -1,7 +1,10 @@
-html
+html(lang=locale)
   head
     title= headTitle
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="alternate" hreflang="en" href="http://whatsinseasonrightnow.com/en/")
+    link(rel="alternate" hreflang="sv" href="http://whatsinseasonrightnow.com/sv/")
+    link(rel="canonical" href="http://whatsinseasonrightnow.com" + canonicalUrl)
     style(type="text/css").
       .top-nav { margin: 5px; }
       ul {
@@ -27,11 +30,11 @@ html
     h1= title
     
     p
-      a(class="top-nav" href="/") All
-      a(class="top-nav" href="/?type=fruit") Fruit
-      a(class="top-nav" href="/?type=vegetables") Vegetables
-      a(class="top-nav" href="/?type=meat_and_game") Meat and game
-      a(class="top-nav" href="/?type=fish_and_seafood") Fish and seafood
+      a(class="top-nav" href="/" + locale + "/") All
+      a(class="top-nav" href="/" + locale + "/fruit") Fruit
+      a(class="top-nav" href="/" + locale + "/vegetables") Vegetables
+      a(class="top-nav" href="/" + locale + "/meat_and_game") Meat and game
+      a(class="top-nav" href="/" + locale + "/fish_and_seafood") Fish and seafood
       
     h2= foodType
   

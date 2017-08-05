@@ -11,9 +11,10 @@ DEFAULT_LOCALE = 'en';
 
 function getLocale(request) {
   var query = request.query['locale'] || request.query['lang'];
+  var url = request.originalUrl;
 
-  if (query === 'sv') return 'sv';
-  if (query === 'en') return 'en';
+  if (query === 'sv' || url.indexOf('/sv/') !== -1) return 'sv';
+  if (query === 'en' || url.indexOf('/en/') !== -1) return 'en';
 
   return null;
 }
@@ -61,11 +62,11 @@ function getPage(locale, originalUrl) {
     commingSoonFoods: commingSoonFoods,
     foodType: foodTypeName,
     i18n: i18n,
+    canonicalUrl: '/' + locale + '/' + foodType,
   };
 
   return {
     viewData: viewData,
-    canonicalUrl: '/' + foodType,
   }
 }
 
